@@ -1,6 +1,7 @@
 from datetime import timedelta
 from pathlib import Path
 import time
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -17,6 +18,9 @@ ALLOWED_HOSTS = ["*"]
 
 CSRF_COOKIE_NAME = 'XSRF-TOKEN'
 CSRF_HEADER_NAME = 'HTTP_X_XSRF_TOKEN'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 
 # Application definition
@@ -124,6 +128,15 @@ JAZZMIN_SETTINGS = {
     "copyright": f"Digtal @{year}",
 }
 
-CORS_ORIGIN_WHITELIST = ['http://localhost:3000','http://192.168.100.169:3000']
 
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:3002",
+    "http://0.0.0.0:3000",
+    "http://127.0.0.0:3000",
+    "http://127.0.0.0:3001",
+    "http://127.0.0.0:3002",
+    "http://172.20.10.4:3000",
+]
