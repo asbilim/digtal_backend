@@ -74,10 +74,26 @@ WSGI_APPLICATION = 'digtal_website.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+       'ENGINE': 'django.db.backends.postgresql',
+         'NAME':'jglzfans',
+         'USER':'jglzfans',
+         'PASSWORD':'jqJ9U2WCuBHlXqiB3Bu-G1Yd_aOQReSa',
+         'HOST':'otto.db.elephantsql.com',
+         'PORT':'5432',
     }
+    # 'default':{
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'dbs10236547',
+    #     'USER': 'dbu5477858',
+    #     'PASSWORD': 'Anepaspirater123@',
+    #     'HOST': 'db5012165528.hosting-data.io',
+    #     'PORT': '3306',
+    # }
 }
 
 

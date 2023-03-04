@@ -21,7 +21,7 @@ for i in range(2):
     company_name = "digtal_24"
 
     data = {'first_name': first_name, 'last_name': last_name,
-            'email': 'kirikounat2@gmail.com', 'subject': 'testing the website', 'phone_number': phone, 'message': text,"company_name": company_name}
+            'email': 'kirikounat2@gmail.com', 'subject': 'testing the api and making sure it works', 'phone_number': phone, 'message': text,"company_name": company_name}
 
     request = requests.post(endpoint, data=data, headers=headers)
 

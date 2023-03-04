@@ -1,7 +1,5 @@
 from django.db import models
-from django.db import models
-import smtplib
-from email.message import EmailMessage
+
 
 # creation of the contact form models
 
@@ -34,9 +32,9 @@ class Newsletter(models.Model):
 
 class Employee(models.Model):
 
-    image = models.ImageField()
+    image = models.ImageField(upload_to="employee/")
     name = models.CharField(max_length=255)
     position = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return self.name + " as " + self.position

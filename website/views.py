@@ -10,21 +10,23 @@ from rest_framework.status import HTTP_200_OK
 import json
 import smtplib
 from email.message import EmailMessage
+from .tests import send_email
 
 # variables
 
-EMAIL_HOLDER = 'dgitald5@gmail.com'
+EMAIL_HOLDER = 'bilimdepaullilian@gmail.com'
 PASSWORD_HOLDER = 'gjrjkwphzhgzouzp'
-PASSWORD_SENDER = 'nihabgkvdasfbgom'
-EMAIL_SENDER = 'noreplydigitald@gmail.com'
+# PASSWORD_SENDER = 'nihabgkvdasfbgom'
+PASSWORD_SENDER = 'Anepaspirater123@'
+EMAIL_SENDER = 'contact@digtal.org'
 
 # variables
 
 
 def sendmail(subject, first_name, last_name, message, address):
 
-    with smtplib.SMTP_SSL('smtp.gmail.com') as smtp:
-
+    with smtplib.SMTP_SSL('smtp.ionos.de',587) as smtp:
+        smtp.starttls()
         smtp.login(EMAIL_SENDER, PASSWORD_SENDER)
         variable_message = f' \n send by {first_name} {last_name}  for {subject} with the email {address} '
         email = EmailMessage()
@@ -54,8 +56,9 @@ class ContactViewSet(ModelViewSet):
             last_name = contact['last_name']
             message = contact['message']
             subject = contact['subject']
-            sendmail(subject=subject, message=message,
-                     first_name=first_name, last_name=last_name, address=email)
+            company= contact['company_name']
+            phone=contact['phone_number']
+            send_email(company_name=company,interest=subject,customer_name=first_name+" "+last_name,email=email,message=message,phone_number=phone)
             serializer.save()
             return Response(serializer.data, status=HTTP_200_OK)
 
